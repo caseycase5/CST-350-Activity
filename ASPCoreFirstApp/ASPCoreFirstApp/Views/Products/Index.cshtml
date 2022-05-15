@@ -1,0 +1,96 @@
+﻿@model IEnumerable<ASPCoreFirstApp.Models.ProductModel>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<p>
+    <a href="products/searchform">Search for a Product</a>
+</p>
+<h4>Flex Box Example</h4>
+<div class="container d-flex flex-wrap">
+    @foreach (var item in Model) {
+        <partial name="_productView" model="item" />
+    }
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="editForm" tabindex="-1" role="dialog" aria-labelledby="editForm" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="Id" class="control-label"></label>
+                    <input id="modal-input-id" for="Id" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="Name" class="control-label"></label>
+                    <input id="modal-input-name" for="Name" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="Price" class="control-label"></label>
+                    <input id="modal-input-price" for="Price" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="Description" class="control-label"></label>
+                    <input id="modal-input-description" for="Description" class="form-control" />
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button id="save-button" type="button" class="btn btn-primary btn-secondary" data-dismiss="modal">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Table taken out for the boostrap cards example
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+-->
